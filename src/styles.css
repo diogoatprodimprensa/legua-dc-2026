@@ -94,6 +94,14 @@ a {
   background: var(--red);
 }
 
+.tag-blue {
+  color: var(--blue);
+}
+
+.tag-blue::before {
+  background: var(--blue);
+}
+
 /* ── TOPBAR ── */
 .topbar {
   position: sticky;
