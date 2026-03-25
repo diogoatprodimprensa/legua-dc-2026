@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-PT" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Légua Diário de Coimbra | 27.ª Edição · 4 Julho 2026</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="XXVII Légua Diário de Coimbra · 4 Julho 2026" />
+  <meta property="og:description" content="Corrida e caminhada de 5 km pelo centro histórico de Coimbra." />
+  <meta property="og:image" content="assets/images/og-image.jpg" />
+  <meta property="og:url" content="https://legua.diariocoimbra.pt" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="tl">
+      <img src="assets/images/logo-dc-white.png" alt="Diário de Coimbra" />
+      <span class="tl-div"></span>
+      <span class="tl-ev">Légua · 4 Julho 2026</span>
+    </div>
+    <nav class="tnav">
+      <a href="#provas">Provas</a>
+      <a href="#percurso">Percurso</a>
+      <a href="#programa">Programa</a>
+      <a href="#inscricoes">Inscrições</a>
+      <a href="https://lap2go.com" target="_blank" class="tcta">Inscrever →</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Background media container - uncomment and add image/video as needed -->
+    <div class="h-bg-media">
+      <img src="assets/images/hero-bg.jpg" alt="" />
+      <!-- OR
+      <video autoplay muted loop playsinline>
+        <source src="assets/images/hero-bg.mp4" type="video/mp4" />
+      </video> -->
+    </div>
+    <div class="h-bg-overlay"></div>
+
+    <div class="h-inner">
+      <div class="h-eye">
+        <div class="dc-badge">
+          <img src="assets/images/logo-dc-icon.png" alt="DC" />
+        </div>
+        <div class="h-eye-txt">
+          <span class="sup">XXVII Légua Diário de Coimbra</span>
+        </div>
+      </div>
+
+      <div class="h-title-wrap">
+        <img src="assets/images/logo-legua.png" alt="XXVII Légua Diário de Coimbra" class="h-logo" />
+      </div>
+
+      <div class="h-facts">
+        <div class="hf">
+          <div class="hf-l">Data</div>
+          <div class="hf-v">4 Julho 2026</div>
+        </div>
+        <div class="hf">
+          <div class="hf-l">Partida</div>
+          <div class="hf-v">Rua da Sofia</div>
+        </div>
+        <div class="hf">
+          <div class="hf-l">Chegada</div>
+          <div class="hf-v">Praça 8 de Maio</div>
+        </div>
+        <div class="hf">
+          <div class="hf-l">Distância</div>
+          <div class="hf-v">5 km</div>
+        </div>
+      </div>
+
+      <div class="h-acts">
+        <a href="https://lap2go.com/pt/event/legua-diario-coimbra-2026" target="_blank" class="btn btn-blue">Inscrever na Lap2Go →</a>
+        <a href="#percurso" class="btn btn-ghost">Ver percurso</a>
+      </div>
+    </div>
+
+    <div class="cd">
+      <div class="container">
+        <span class="cd-lbl">Contagem<br>decrescente</span>
+        <div class="cd-units">
+          <div class="cd-u"><span class="cd-n" id="cd-d">—</span><span class="cd-s">Dias</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-u"><span class="cd-n" id="cd-h">—</span><span class="cd-s">Horas</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-u"><span class="cd-n" id="cd-m">—</span><span class="cd-s">Min</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-u"><span class="cd-n" id="cd-s2">—</span><span class="cd-s">Seg</span></div>
+        </div>
+      </div>
+    </div>
+      
+    <div class="ticker" aria-hidden="true">
+      <div class="t-track">
+        <span class="ti">XXVII Légua Diário de Coimbra</span><span class="ti td">◆</span>
+        <span class="ti">4 Julho 2026 · Feriado Municipal</span><span class="ti td">◆</span>
+        <span class="ti">Corrida às 09h30 · Caminhada às 09h31</span><span class="ti td">◆</span>
+        <span class="ti">Rua da Sofia → Praça 8 de Maio · 5 km</span><span class="ti td">◆</span>
+        <span class="ti">Inscrição a partir de 4,96€ · Lap2Go</span><span class="ti td">◆</span>
+        <span class="ti">XXVII Légua Diário de Coimbra</span><span class="ti td">◆</span>
+        <span class="ti">4 Julho 2026 · Feriado Municipal</span><span class="ti td">◆</span>
+        <span class="ti">Corrida às 09h30 · Caminhada às 09h31</span><span class="ti td">◆</span>
+        <span class="ti">Rua da Sofia → Praça 8 de Maio · 5 km</span><span class="ti td">◆</span>
+        <span class="ti">Inscrição a partir de 4,96€ · Lap2Go</span><span class="ti td">◆</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- TWO RACES -->
+  <section class="races" id="provas">
+    <div class="container">
+      <div class="race">
+        <div class="race-icon">🏃‍♂️</div>
+        <div class="race-name">Corrida</div>
+        <div class="race-sub">5 km · Cronometrada · Competitiva</div>
+        <ul class="race-ul">
+          <li>5 km homologados internacionalmente (World Athletics)</li>
+          <li>Cronometragem por chip no dorsal</li>
+          <li>Classificações individuais e coletivas por género</li>
+          <li>Mínimo 16 anos de idade para participar</li>
+          <li>Aberta a atletas federados e não federados</li>
+          <li>Limite: 500 participantes</li>
+        </ul>
+        <div class="race-price">
+          <span class="price-from">A partir de</span>
+          <span class="price-val">4,96€</span>
+          <span class="price-note">&nbsp;(1.ª fase)</span>
+        </div>
+      </div>
+      <div class="race">
+        <div class="race-icon">🚶‍♀️</div>
+        <div class="race-name">Caminhada</div>
+        <div class="race-sub">5 km · Não Cronometrada · Para Todos</div>
+        <ul class="race-ul">
+          <li>5 km sem fins competitivos</li>
+          <li>Aberta a todas as classes etárias</li>
+          <li>Sem chip — sem classificação</li>
+          <li>Uso da t-shirt oficial obrigatório durante a caminhada</li>
+          <li>A organização controlará o ritmo</li>
+          <li>Limite: 500 participantes</li>
+        </ul>
+        <div class="race-price" style="border-color:rgba(27,126,194,.2)">
+          <span class="price-from">A partir de</span>
+          <span class="price-val" style="color:var(--blue)">4,96€</span>
+          <span class="price-note">&nbsp;(1.ª fase)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICES -->
+  <section class="prices" id="inscricoes">
+    <div class="container">
+      <div class="sec-head sr">
+        <div>
+          <div class="tag">Inscrições</div>
+          <h2 class="sec-t">Valores e fases de inscrição</h2>
+        </div>
+        <p class="sec-note">Inscrições via <strong>Lap2Go</strong>. Só confirmadas após pagamento. Sem reembolsos.</p>
+      </div>
+
+      <div class="prices-grid sr d1">
+        <div class="pg">
+          <div class="pg-phase">1.ª Fase</div>
+          <div class="pg-dates">24 Março → 24 Maio</div>
+          <div class="pg-prices">
+            <div class="pg-price-row"><span class="pp-type">🏃 Corrida</span><span class="pp-val">4,96€</span></div>
+            <div class="pg-price-row"><span class="pp-type">🚶 Caminhada</span><span class="pp-val">4,96€</span></div>
+          </div>
+          <div class="pg-note">Limitado a 500 inscrições por prova.</div>
+        </div>
+        <div class="pg">
+          <div class="pg-phase">2.ª Fase</div>
+          <div class="pg-dates">25 Maio → 24 Junho</div>
+          <div class="pg-prices">
+            <div class="pg-price-row"><span class="pp-type">🏃 Corrida</span><span class="pp-val">8,96€</span></div>
+            <div class="pg-price-row"><span class="pp-type">🚶 Caminhada</span><span class="pp-val">6,96€</span></div>
+          </div>
+          <div class="pg-note">Ou após as 500 inscrições da 1.ª fase, até ao limite máximo.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;" class="sr d2">
+        <a href="https://lap2go.com/pt/event/legua-diario-coimbra-2026" target="_blank" class="btn btn-blue">Inscrever na Lap2Go →</a>
+        <a href="mailto:legua@diariocoimbra.pt" class="btn btn-red">Contactar a organização</a>
+      </div>
+      <p style="margin-top:16px;font-size:12px;font-weight:300;color:var(--muted);">A emissão de fatura deve ser
+        solicitada no ato de inscrição. A cedência de dorsais a terceiros não é autorizada.</p>
+    </div>
+  </section>
+
+  <!-- PROGRAM -->
+  <section class="program" id="programa">
+    <div class="container">
+      <div class="tag sr">Programa</div>
+      <h2 class="sec-t sr d1" style="color:#fff;margin-top:10px;">Programa</h2>
+
+      <div class="prog-list sr d2">
+        <div class="prog-item">
+          <div class="prog-time">08h00</div>
+          <div class="prog-body">
+            <div class="prog-ev">Abertura do Secretariado</div>
+            <div class="prog-desc">Galeria da Casa da Mutualidade – Coimbra.Arte, R. Dr. Manuel Rodrigues 5</div>
+          </div>
+          <div class="prog-badge"><span class="badge badge-gold">Info</span></div>
+        </div>
+        <div class="prog-item">
+          <div class="prog-time">09h00</div>
+          <div class="prog-body">
+            <div class="prog-ev">Encerramento do Secretariado</div>
+            <div class="prog-desc">Último momento para levantar dorsal no secretariado</div>
+          </div>
+          <div class="prog-badge"><span class="badge badge-gold">Info</span></div>
+        </div>
+        <div class="prog-item">
+          <div class="prog-time">09h05</div>
+          <div class="prog-body">
+            <div class="prog-ev">Aquecimento</div>
+            <div class="prog-desc">Aquecimento coletivo na zona de partida</div>
+          </div>
+          <div class="prog-badge"><span class="badge badge-blue">Geral</span></div>
+        </div>
+        <div class="prog-item">
+          <div class="prog-time">09h30</div>
+          <div class="prog-body">
+            <div class="prog-ev">🏃 Partida da Corrida</div>
+            <div class="prog-desc">27.ª Légua Diário de Coimbra · 5 km cronometrados · Rua da Sofia</div>
+          </div>
+          <div class="prog-badge"><span class="badge badge-blue">Corrida</span></div>
+        </div>
+        <div class="prog-item">
+          <div class="prog-time">09h31</div>
+          <div class="prog-body">
+            <div class="prog-ev">🚶 Partida da Caminhada</div>
+            <div class="prog-desc">27.ª Légua Diário de Coimbra · 5 km não cronometrados · Rua da Sofia</div>
+          </div>
+          <div class="prog-badge"><span class="badge badge-blue">Caminhada</span></div>
+        </div>
+        <div class="prog-item">
+          <div class="prog-time">11h00</div>
+          <div class="prog-body">
+            <div class="prog-ev">🏆 Cerimónia de Entrega de Prémios</div>
+            <div class="prog-desc">Top 3 Geral M/F · Top 3 por Escalão · Top 3 Equipas M/F</div>
+          </div>
+          <div class="prog-badge"><span class="badge badge-red">Prémios</span></div>
+        </div>
+      </div>
+      <p style="margin-top:20px;font-size:12px;font-weight:300;color:rgba(255,255,255,.35);">Limite horário das provas:
+        1 hora e 30 minutos. Após passagem do último carro, participantes no percurso ficam sob responsabilidade
+        própria.</p>
+    </div>
+  </section>
+
+  <!-- ROUTE -->
+  <section class="route" id="percurso">
+    <div class="container">
+      <div class="sec-head sr">
+        <div>
+          <div class="tag">Percurso</div>
+          <h2 class="sec-t">Pelo coração histórico<br>de Coimbra</h2>
+        </div>
+        <p class="sec-note">5 km pelo centro histórico da cidade, com ponto de abastecimento líquido no percurso e na
+          meta.</p>
+      </div>
+
+      <div class="stops-wrap sr d1">
+        <div class="stops">
+          <div class="stop">
+            <div class="stop-dot"><span class="stop-km">Partida</span></div>
+            <div class="stop-name">Rua da Sofia</div>
+            <div class="stop-desc">09h30 / 09h31</div>
+          </div>
+          <div class="stop">
+            <div class="stop-dot"><span class="stop-km">Km 1</span></div>
+            <div class="stop-name">Av. Sá da Bandeira</div>
+            <div class="stop-desc">Centro da cidade</div>
+          </div>
+          <div class="stop">
+            <div class="stop-dot"><span class="stop-km">Km 2</span></div>
+            <div class="stop-name">Couraça dos Apóstolos</div>
+            <div class="stop-desc">Rua Larga · Praça D. Dinis</div>
+          </div>
+          <div class="stop">
+            <div class="stop-dot"><span class="stop-km">Km 3</span></div>
+            <div class="stop-name">Alameda Dr. Júlio Henriques</div>
+            <div class="stop-desc">Jardim Botânico</div>
+          </div>
+          <div class="stop">
+            <div class="stop-dot"><span class="stop-km">Km 4</span></div>
+            <div class="stop-name">Av. Emídio Navarro</div>
+            <div class="stop-desc">Largo da Portagem · Rio Mondego</div>
+          </div>
+          <div class="stop">
+            <div class="stop-dot"><span class="stop-km">Chegada</span></div>
+            <div class="stop-name">Praça 8 de Maio</div>
+            <div class="stop-desc">Meta · 5 km</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="route-streets sr d2">
+        <div class="rs-label">Percurso completo</div>
+        <div class="rs-list">
+          Rua da Sofia <span>→</span> Av. Sá da Bandeira <span>→</span> R. Padre António Vieira <span>→</span> Couraça
+          dos Apóstolos <span>→</span> R. de S. João <span>→</span> Rua Larga <span>→</span> Praça Dom Dinis
+          <span>→</span> Calçada Martim de Freitas <span>→</span> Alameda Dr. Júlio Henriques <span>→</span> Ladeira das
+          Alpenduradas <span>→</span> Rua do Brasil <span>→</span> Av. Emídio Navarro <span>→</span> Largo da Portagem
+          <span>→</span> R. Ferreira Borges <span>→</span> R. Visconde da Luz <span>→</span> <strong>Praça 8 de
+            Maio</strong>
+        </div>
+      </div> -->
+
+      <div class="rf sr d3">
+        <div class="rf-d"><span class="big">5</span><span class="unit">km</span></div>
+        <div class="rf-i">
+          <p>
+            Rua da Sofia <span>→</span> Av. Sá da Bandeira <span>→</span> R. Padre António Vieira <span>→</span> Couraça
+          dos Apóstolos <span>→</span> R. de S. João <span>→</span> Rua Larga <span>→</span> Praça Dom Dinis
+          <span>→</span> Calçada Martim de Freitas <span>→</span> Alameda Dr. Júlio Henriques <span>→</span> Ladeira das
+          Alpenduradas <span>→</span> Rua do Brasil <span>→</span> Av. Emídio Navarro <span>→</span> Largo da Portagem
+          <span>→</span> R. Ferreira Borges <span>→</span> R. Visconde da Luz <span>→</span> <strong>Praça 8 de
+            Maio</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- to remove. placeholder only -->
+  <hr />
+
+  <!-- DORSAL PICKUP -->
+  <section class="dorsals" id="dorsais">
+    <div class="container">
+      <div class="tag sr tag-red">Levantamento de Dorsais</div>
+      <h2 class="sec-t sr d1">Onde e quando levantar</h2>
+      <div class="dor-grid sr d2">
+        <div class="dc">
+          <div class="dc-day">2 e 3 de Julho · 14h30–18h30</div>
+          <div class="dc-title">Decathlon Coimbra</div>
+          <div class="dc-body">Santa Clara, junto ao Forum Coimbra.<br>Apresentar comprovativo de inscrição e documento
+            de identificação com fotografia.</div>
+        </div>
+        <div class="dc">
+          <div class="dc-day">4 de Julho · A partir das 08h00</div>
+          <div class="dc-title">Secretariado da Competição</div>
+          <div class="dc-body">Galeria da Casa da Mutualidade – Coimbra.Arte<br>R. Dr. Manuel Rodrigues 5, 3000-258
+            Coimbra.<br>Até 30 minutos antes do início da prova.</div>
+        </div>
+        <div class="dc">
+          <div class="dc-day">Importante</div>
+          <div class="dc-title">Durante a Prova</div>
+          <div class="dc-body">O dorsal deve estar visível durante toda a prova, fixado com alfinetes ou porta-dorsais
+            (não fornecidos pela organização). Atletas sem dorsal não terão acesso ao kit de finalista.</div>
+        </div>
+        <div class="dc">
+          <div class="dc-day">Informação</div>
+          <div class="dc-title">Serviços no Dia</div>
+          <div class="dc-body">Guarda-roupa disponível na partida (apresentar dorsal para levantar). Chuveiros no
+            Estádio Universitário de Coimbra em horário a anunciar.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- to remove. placeholder only -->
+  <hr />
+
+  <!-- CONTACTS -->
+  <section class="contact" id="contactos">
+    <div class="container">
+      <div class="tag sr" style="color:var(--blue-lt)"><span
+          style="width:20px;height:2px;background:var(--blue-lt);display:inline-block;margin-right:8px;"></span>Contactos
+      </div>
+      <h2 class="sec-t sr d1" style="color:#fff;margin-top:10px;">Fale connosco</h2>
+      <div class="contact-grid sr d2">
+        <div class="ci">
+          <span class="ci-l">Organização do Evento</span>
+          <span class="ci-v"><a href="mailto:legua@diariocoimbra.pt">legua@diariocoimbra.pt</a></span>
+          <span class="ci-v"><a href="tel:+351916604977">+351 916 604 977</a></span>
+          <span class="ci-v" style="font-size:11px;color:rgba(255,255,255,.35);">2ª a 6ª · 9h–13h e 14h–18h</span>
+        </div>
+        <div class="ci">
+          <span class="ci-l">Suporte Inscrições · Lap2Go</span>
+          <span class="ci-v"><a href="mailto:suporte@lap2go.com">suporte@lap2go.com</a></span>
+          <span class="ci-v"><a href="tel:+351308801674">+351 308 801 674</a></span>
+          <span class="ci-v"><a href="https://lap2go.com" target="_blank">lap2go.com</a></span>
+        </div>
+        <div class="ci">
+          <span class="ci-l">Diário de Coimbra</span>
+          <span class="ci-v">Rua Adriano Lucas, 161</span>
+          <span class="ci-v">3020-430 Coimbra</span>
+          <span class="ci-v"><a href="tel:+351239499930">+351 239 499 930</a></span>
+        </div>
+        <div class="ci">
+          <span class="ci-l">Protecção de Dados</span>
+          <span class="ci-v">Para acesso, retificação ou eliminação de dados pessoais:</span>
+          <span class="ci-v"><a href="mailto:legua@diariocoimbra.pt">legua@diariocoimbra.pt</a></span>
+          <span class="ci-v" style="font-size:11px;color:rgba(255,255,255,.35);">Dados armazenados por 2 anos ·
+            RGPD</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGS -->
+  <div class="orgs">
+    <div class="container">
+      <span class="o-lbl">Coorganização</span>
+      <div class="o-list">
+        <div class="o-item"><span class="o-dot"></span><span class="o-n">Diário de Coimbra</span></div>
+        <div class="o-item"><span class="o-dot"></span><span class="o-n">Câmara Municipal de Coimbra</span></div>
+        <div class="o-item"><span class="o-dot"></span><span class="o-n">Assoc. Distrital de Atletismo de Coimbra</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="ft">
+        <div class="fb">
+          <img src="assets/images/logo-dc-white.png" alt="Diário de Coimbra" />
+          <p class="fb-tag">Fundado a 24 de maio de 1930 por Adriano Viegas da Cunha Lucas. O jornal diário regional
+            mais lido em Portugal.</p>
+          <div class="fb-soc">
+            <a href="https://www.facebook.com/diariocoimbra" target="_blank">f</a>
+            <a href="https://x.com/diariodecoimbra" target="_blank">𝕏</a>
+            <a href="https://www.instagram.com/diariocoimbra" target="_blank">◻</a>
+            <a href="https://www.youtube.com/@jornalDiariodeCoimbra" target="_blank">▶</a>
+          </div>
+        </div>
+        <div class="fc">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#provas">As Provas</a></li>
+            <li><a href="#inscricoes">Inscrições e Preços</a></li>
+            <li><a href="#programa">Programa</a></li>
+            <li><a href="#percurso">Percurso</a></li>
+            <li><a href="#dorsais">Dorsais</a></li>
+            <li><a href="#categorias">Escalões</a></li>
+            <li><a href="#contactos">Contactos</a></li>
+          </ul>
+        </div>
+        <div class="fc">
+          <h4>Links Úteis</h4>
+          <ul>
+            <li><a href="https://lap2go.com" target="_blank">Inscrições — Lap2Go</a></li>
+            <li><a href="https://www.diariocoimbra.pt/legua-diario-de-coimbra/" target="_blank">Página Oficial DC</a>
+            </li>
+            <li><a href="https://www.cm-coimbra.pt" target="_blank">Câmara Municipal</a></li>
+            <li><a href="https://www.fpatletismo.pt" target="_blank">FP de Atletismo</a></li>
+            <li><a href="https://www.diariocoimbra.pt/politica-privacidade/" target="_blank">Política de Privacidade</a>
+            </li>
+          </ul>
+        </div>
+        <div class="fc">
+          <h4>Contactos</h4>
+          <ul>
+            <li><a href="mailto:legua@diariocoimbra.pt">legua@diariocoimbra.pt</a></li>
+            <li><a href="tel:+351916604977">+351 916 604 977</a></li>
+            <li><a href="mailto:redac@diariocoimbra.pt">redac@diariocoimbra.pt</a></li>
+            <li><a href="tel:+351239499930">+351 239 499 930</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="fb-bot">
+        <p>© 2026 <span class="b">Diário de Coimbra</span> · XXVII Légua Diário de Coimbra</p>
+        <p>Coimbra · Portugal · 4 Julho 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+
+</html>
