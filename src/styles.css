@@ -583,6 +583,63 @@ a {
   padding: 0 4px;
 }
 
+/* ── MEDIA + COUNTDOWN GRID ── */
+.media-countdown {
+  background: var(--white);
+  padding: 80px 0;
+}
+
+.mc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.mc-video {
+  aspect-ratio: 9/16;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .15);
+  max-height: 600px;
+}
+
+.mc-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.mc-countdown {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mc-countdown .cd {
+  background: transparent;
+  padding: 0;
+}
+
+.mc-countdown .cd .container {
+  max-width: 100%;
+  padding: 0;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 960px) {
+  .mc-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .mc-video {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
 /* ── TWO RACES ── */
 .races {
   padding: 80px 0;

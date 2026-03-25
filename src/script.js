@@ -8,9 +8,13 @@ const TARGET_DATE = new Date('2026-07-04T09:30:00');
 function updateCountdown() {
   const diff = TARGET_DATE - Date.now();
 
+  const ids = ['cd-d', 'cd-h', 'cd-m', 'cd-s2'];
+  const ids2 = ['cd-d-2', 'cd-h-2', 'cd-m-2', 'cd-s2-2'];
+
   if (diff <= 0) {
-    ['cd-d', 'cd-h', 'cd-m', 'cd-s2'].forEach(id => {
-      document.getElementById(id).textContent = '00';
+    ids.concat(ids2).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = '00';
     });
     return;
   }
@@ -20,10 +24,15 @@ function updateCountdown() {
   const minutes = Math.floor((diff % 36e5) / 6e4);
   const seconds = Math.floor((diff % 6e4) / 1e3);
 
-  document.getElementById('cd-d').textContent = String(days).padStart(2, '0');
-  document.getElementById('cd-h').textContent = String(hours).padStart(2, '0');
-  document.getElementById('cd-m').textContent = String(minutes).padStart(2, '0');
-  document.getElementById('cd-s2').textContent = String(seconds).padStart(2, '0');
+  const values = [days, hours, minutes, seconds];
+
+  // Update both countdowns
+  [ids, ids2].forEach(idSet => {
+    idSet.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = String(values[i]).padStart(2, '0');
+    });
+  });
 }
 
 // Initialize countdown
