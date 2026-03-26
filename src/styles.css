@@ -591,17 +591,10 @@ a {
   padding: 0 4px;
 }
 
-/* ── MEDIA + COUNTDOWN GRID ── */
+/* ── MEDIA SECTION ── */
 .media-countdown {
   background: var(--white);
   padding: 80px 0;
-}
-
-.mc-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
 }
 
 .mc-video {
@@ -610,7 +603,9 @@ a {
   overflow: hidden;
   background: #000;
   box-shadow: 0 8px 32px rgba(0, 0, 0, .15);
-  max-height: 600px;
+  max-width: 500px;
+  max-height: 700px;
+  margin: 0 auto;
 }
 
 .mc-video iframe {
@@ -619,32 +614,10 @@ a {
   border: none;
 }
 
-.mc-countdown {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.mc-countdown .cd {
-  background: transparent;
-  padding: 0;
-}
-
-.mc-countdown .cd .container {
-  max-width: 100%;
-  padding: 0;
-}
-
-/* Responsive: stack on mobile */
+/* Responsive: smaller on mobile */
 @media (max-width: 960px) {
-  .mc-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
   .mc-video {
     max-width: 400px;
-    margin: 0 auto;
   }
 }
 
