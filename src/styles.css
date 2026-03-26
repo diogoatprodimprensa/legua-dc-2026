@@ -536,21 +536,24 @@ a {
   overflow: hidden;
   border-top: 1px solid rgba(0, 0, 0, .06);
   border-bottom: 1px solid rgba(0, 0, 0, .06);
+  position: relative;
+  width: 100%;
 }
 
 .sponsors-track {
   display: flex;
   gap: 60px;
+  width: max-content;
   animation: scroll-sponsors 40s linear infinite;
-  width: fit-content;
+  will-change: transform;
 }
 
 @keyframes scroll-sponsors {
-  from {
+  0% {
     transform: translateX(0);
   }
-  to {
-    transform: translateX(-50%);
+  100% {
+    transform: translateX(calc(-50% - 30px));
   }
 }
 
@@ -560,6 +563,7 @@ a {
   align-items: center;
   justify-content: center;
   height: 60px;
+  width: 200px;
 }
 
 .sponsor-logo img {
