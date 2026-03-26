@@ -44,3 +44,16 @@ const revealObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll('.sr').forEach((el) => revealObserver.observe(el));
+
+const videoIframe = document.querySelector('.video-embed iframe');
+
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      videoIframe.src = videoIframe.dataset.src;
+      videoObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+videoObserver.observe(document.querySelector('.video-embed'));
