@@ -54,64 +54,42 @@ if (sponsorsTrack) {
   let currentTranslate = 0;
   let prevTranslate = 0;
 
-  // Mouse events
-  sponsorsTrack.addEventListener('mousedown', (e) => {
+  function startDrag(x) {
     isDown = true;
-    startX = e.clientX;
+    startX = x;
     sponsorsTrack.style.cursor = 'grabbing';
     sponsorsTrack.style.animation = 'none';
-  });
+  }
 
-  sponsorsTrack.addEventListener('mousemove', (e) => {
+  function moveDrag(x) {
     if (!isDown) return;
-    const x = e.clientX;
-    const walk = x - startX;
-    currentTranslate = prevTranslate + walk;
+    currentTranslate = prevTranslate + (x - startX);
     sponsorsTrack.style.transform = `translateX(${currentTranslate}px)`;
-  });
+  }
 
-  sponsorsTrack.addEventListener('mouseup', () => {
+  function endDrag() {
+    if (!isDown) return;
     isDown = false;
+    prevTranslate = currentTranslate;
     sponsorsTrack.style.cursor = 'grab';
-    prevTranslate = currentTranslate;
     sponsorsTrack.style.animation = 'scroll-sponsors 40s linear infinite';
+  }
+
+  sponsorsTrack.addEventListener('pointerdown', (e) => {
+    sponsorsTrack.setPointerCapture(e.pointerId);
+    startDrag(e.clientX);
   });
 
-  sponsorsTrack.addEventListener('mouseleave', () => {
-    if (isDown) {
-      isDown = false;
-      sponsorsTrack.style.cursor = 'grab';
-      prevTranslate = currentTranslate;
-      sponsorsTrack.style.animation = 'scroll-sponsors 40s linear infinite';
-    }
+  sponsorsTrack.addEventListener('pointermove', (e) => {
+    moveDrag(e.clientX);
   });
 
-  // Touch events
-  sponsorsTrack.addEventListener('touchstart', (e) => {
-    isDown = true;
-    startX = e.touches[0].clientX;
-    sponsorsTrack.style.animation = 'none';
-  });
+  sponsorsTrack.addEventListener('pointerup', endDrag);
+  sponsorsTrack.addEventListener('pointercancel', endDrag);
 
-  sponsorsTrack.addEventListener('touchmove', (e) => {
-    if (!isDown) return;
-    const x = e.touches[0].clientX;
-    const walk = x - startX;
-    currentTranslate = prevTranslate + walk;
-    sponsorsTrack.style.transform = `translateX(${currentTranslate}px)`;
-  });
-
-  sponsorsTrack.addEventListener('touchend', () => {
-    isDown = false;
-    prevTranslate = currentTranslate;
-    sponsorsTrack.style.animation = 'scroll-sponsors 40s linear infinite';
-  });
-
-  // Prevent dragging text/images
   sponsorsTrack.addEventListener('dragstart', (e) => {
     e.preventDefault();
   });
 
-  // Set initial cursor style
   sponsorsTrack.style.cursor = 'grab';
 }
