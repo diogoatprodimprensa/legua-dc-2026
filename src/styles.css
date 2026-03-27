@@ -918,7 +918,8 @@ a {
   height: 60px;
 }
 
-.pki-icon img {
+.pki-icon img,
+.pki-icon svg {
   max-width: 100%;
   max-height: 100%;
   width: auto;
