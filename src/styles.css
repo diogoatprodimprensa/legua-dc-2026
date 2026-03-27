@@ -1507,9 +1507,17 @@ footer {
   transition: border-color .2s, color .2s;
 }
 
+.fb-soc a svg path {
+  fill: #fff;
+}
+
 .fb-soc a:hover {
   border-color: var(--blue);
   color: #fff;
+}
+
+.fb-soc a:hover svg path {
+  fill: var(--blue);
 }
 
 .fc h4 {
