@@ -413,20 +413,14 @@ a {
   display: flex;
   gap: 60px;
   width: max-content;
-  animation: scroll-sponsors 40s linear infinite;
   will-change: transform;
   user-select: none;
   -webkit-user-select: none;
+  cursor: grab;
 }
 
-@keyframes scroll-sponsors {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(calc(-50% - 30px));
-  }
+.sponsors-track.is-dragging {
+  cursor: grabbing;
 }
 
 .sponsor-logo {
@@ -457,11 +451,6 @@ a {
 
 .sponsor-logo:hover img {
   filter: brightness(1.1);
-}
-
-/* Pause animation on hover */
-.sponsors:hover .sponsors-track {
-  animation-play-state: paused;
 }
 
 /* ── COUNTDOWN ── */
@@ -911,10 +900,10 @@ a {
 
 .pg-kit-item {
   flex: 1;
-  background: var(--cream);
+  background: #ecf0f1;
   padding: 24px 36px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
 }
 
