@@ -1398,6 +1398,48 @@ a {
   letter-spacing: .05em;
 }
 
+/* ── KIT / INCLUDES ── */
+.pg-kit {
+  display: flex;
+  gap: 2px;
+  margin-top: 2px;
+  background: rgba(0, 0, 0, .07);
+}
+
+.pg-kit-item {
+  flex: 1;
+  background: var(--cream);
+  padding: 24px 36px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.pki-icon {
+  font-size: 24px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.pki-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pki-t {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.pki-s {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 /* ── FOOTER ── */
 footer {
   background: var(--navy);
@@ -1647,5 +1689,9 @@ footer {
 
   .o-item img {
     max-height: 45px;
+  }
+
+  .pg-kit {
+    flex-direction: column;
   }
 }
