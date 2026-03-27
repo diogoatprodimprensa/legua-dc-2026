@@ -125,9 +125,18 @@ if (track) {
   track.addEventListener('pointerup', endDrag);
   track.addEventListener('pointercancel', endDrag);
 
-  // Prevent click firing on logos after drag
+  // Prevent click firing on logos after drag, but allow links to work
   track.addEventListener('click', (e) => {
-    if (Math.abs(dragStartX - lastDragX) > 5) {
+    const dragDistance = Math.abs(dragStartX - lastDragX);
+    const isLink = e.target.closest('a');
+
+    // If it's a link and wasn't dragged significantly, allow the click
+    if (isLink && dragDistance < 5) {
+      return; // Allow link navigation
+    }
+
+    // Only prevent clicks after significant dragging
+    if (dragDistance > 5) {
       e.preventDefault();
     }
   });
