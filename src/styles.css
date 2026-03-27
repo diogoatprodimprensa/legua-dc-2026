@@ -1370,7 +1370,16 @@ a {
 .o-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  height: 60px;
+}
+
+.o-item img {
+  max-height: 60px;
+  max-width: 200px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 .o-dot {
@@ -1407,6 +1416,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  align-items: flex-start;
 }
 
 .fb img {
@@ -1615,5 +1625,27 @@ footer {
   .sec-head {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .orgs .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .o-list {
+    gap: 16px;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .o-item {
+    height: 45px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .o-item img {
+    max-height: 45px;
   }
 }
