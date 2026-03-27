@@ -47,24 +47,19 @@ document.querySelectorAll('.sr').forEach((el) => revealObserver.observe(el));
 
 /* SPONSORS CAROUSEL DRAG */
 const sponsorsTrack = document.querySelector('.sponsors-track');
-const sponsorsSection = document.querySelector('.sponsors');
 
 if (sponsorsTrack) {
   let isDown = false;
   let startX = 0;
   let currentTranslate = 0;
   let prevTranslate = 0;
-  let animationID;
-  let isDragging = false;
 
   // Mouse events
   sponsorsTrack.addEventListener('mousedown', (e) => {
     isDown = true;
-    isDragging = true;
     startX = e.clientX;
     sponsorsTrack.style.cursor = 'grabbing';
-    sponsorsTrack.style.animation = 'none';
-    sponsorsTrack.style.willChange = 'transform';
+    sponsorsTrack.style.animationPlayState = 'paused';
   });
 
   sponsorsTrack.addEventListener('mousemove', (e) => {
@@ -79,13 +74,7 @@ if (sponsorsTrack) {
     isDown = false;
     sponsorsTrack.style.cursor = 'grab';
     prevTranslate = currentTranslate;
-    // Resume animation after a brief pause
-    setTimeout(() => {
-      if (!isDragging) {
-        sponsorsTrack.style.animation = '';
-        sponsorsTrack.style.willChange = 'auto';
-      }
-    }, 100);
+    sponsorsTrack.style.animationPlayState = 'running';
   });
 
   sponsorsTrack.addEventListener('mouseleave', () => {
@@ -93,22 +82,15 @@ if (sponsorsTrack) {
       isDown = false;
       sponsorsTrack.style.cursor = 'grab';
       prevTranslate = currentTranslate;
-      setTimeout(() => {
-        if (!isDragging) {
-          sponsorsTrack.style.animation = '';
-          sponsorsTrack.style.willChange = 'auto';
-        }
-      }, 100);
+      sponsorsTrack.style.animationPlayState = 'running';
     }
   });
 
   // Touch events
   sponsorsTrack.addEventListener('touchstart', (e) => {
     isDown = true;
-    isDragging = true;
     startX = e.touches[0].clientX;
-    sponsorsTrack.style.animation = 'none';
-    sponsorsTrack.style.willChange = 'transform';
+    sponsorsTrack.style.animationPlayState = 'paused';
   });
 
   sponsorsTrack.addEventListener('touchmove', (e) => {
@@ -121,13 +103,8 @@ if (sponsorsTrack) {
 
   sponsorsTrack.addEventListener('touchend', () => {
     isDown = false;
-    isDragging = false;
     prevTranslate = currentTranslate;
-    // Resume animation
-    setTimeout(() => {
-      sponsorsTrack.style.animation = '';
-      sponsorsTrack.style.willChange = 'auto';
-    }, 100);
+    sponsorsTrack.style.animationPlayState = 'running';
   });
 
   // Prevent dragging text/images
