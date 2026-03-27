@@ -908,9 +908,20 @@ a {
 }
 
 .pki-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 24px;
   line-height: 1;
   flex-shrink: 0;
+  min-width: 60px;
+}
+
+.pki-icon img {
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 .pki-body {
