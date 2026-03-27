@@ -550,7 +550,6 @@ a {
   will-change: transform;
   user-select: none;
   -webkit-user-select: none;
-  transition: transform 0.1s ease-out;
 }
 
 @keyframes scroll-sponsors {

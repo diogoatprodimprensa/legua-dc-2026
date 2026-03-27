@@ -59,7 +59,7 @@ if (sponsorsTrack) {
     isDown = true;
     startX = e.clientX;
     sponsorsTrack.style.cursor = 'grabbing';
-    sponsorsTrack.style.animationPlayState = 'paused';
+    sponsorsTrack.style.animation = 'none';
   });
 
   sponsorsTrack.addEventListener('mousemove', (e) => {
@@ -74,7 +74,7 @@ if (sponsorsTrack) {
     isDown = false;
     sponsorsTrack.style.cursor = 'grab';
     prevTranslate = currentTranslate;
-    sponsorsTrack.style.animationPlayState = 'running';
+    sponsorsTrack.style.animation = 'scroll-sponsors 40s linear infinite';
   });
 
   sponsorsTrack.addEventListener('mouseleave', () => {
@@ -82,7 +82,7 @@ if (sponsorsTrack) {
       isDown = false;
       sponsorsTrack.style.cursor = 'grab';
       prevTranslate = currentTranslate;
-      sponsorsTrack.style.animationPlayState = 'running';
+      sponsorsTrack.style.animation = 'scroll-sponsors 40s linear infinite';
     }
   });
 
@@ -90,7 +90,7 @@ if (sponsorsTrack) {
   sponsorsTrack.addEventListener('touchstart', (e) => {
     isDown = true;
     startX = e.touches[0].clientX;
-    sponsorsTrack.style.animationPlayState = 'paused';
+    sponsorsTrack.style.animation = 'none';
   });
 
   sponsorsTrack.addEventListener('touchmove', (e) => {
@@ -104,7 +104,7 @@ if (sponsorsTrack) {
   sponsorsTrack.addEventListener('touchend', () => {
     isDown = false;
     prevTranslate = currentTranslate;
-    sponsorsTrack.style.animationPlayState = 'running';
+    sponsorsTrack.style.animation = 'scroll-sponsors 40s linear infinite';
   });
 
   // Prevent dragging text/images
