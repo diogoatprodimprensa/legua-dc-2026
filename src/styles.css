@@ -571,6 +571,15 @@ a {
   width: 200px;
 }
 
+.sponsor-logo a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+
 .sponsor-logo img {
   height: 100%;
   width: auto;
