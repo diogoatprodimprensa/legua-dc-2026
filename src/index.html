@@ -25,6 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
@@ -129,29 +130,35 @@
 
   <!-- SPONSORS CAROUSEL -->
   <section class="sponsors">
-    <div class="sponsors-track">
-      <!-- Only original logos — NO duplicates, JS handles cloning -->
-      <div class="sponsor-logo">
-        <a href="#"><img src="assets/images/sponsors/sponsor-sodicentro.png" alt="Sodicentro" /></a>
+    <div class="swiper sponsors-carousel">
+      <div class="swiper-wrapper">
+        <!-- Only original logos — Swiper handles looping -->
+        <div class="swiper-slide sponsor-logo">
+        <a href="https://www.sodicentro.pt"><img src="assets/images/sponsors/sponsor-sodicentro.png"
+            alt="Sodicentro" /></a>
       </div>
-      <div class="sponsor-logo">
-        <a href="#"><img src="assets/images/sponsors/sponsor-cruz-vermelha.png" alt="Cruz Vermelha" /></a>
+      <div class="swiper-slide sponsor-logo">
+        <a href="https://www.cruzvermelha.pt"><img src="assets/images/sponsors/sponsor-cruz-vermelha.png"
+            alt="Cruz Vermelha" /></a>
       </div>
-      <div class="sponsor-logo">
-        <a href="#"><img src="assets/images/sponsors/sponsor-decathlon.png" alt="Decathlon" /></a>
+      <div class="swiper-slide sponsor-logo">
+        <a href="https://www.decathlon.pt"><img src="assets/images/sponsors/sponsor-decathlon.png"
+            alt="Decathlon" /></a>
       </div>
-      <div class="sponsor-logo">
-        <a href="#"><img src="assets/images/sponsors/sponsor-fit-and-fun.png" alt="Fit and Fun" /></a>
+      <div class="swiper-slide sponsor-logo">
+        <a href="https://www.facebook.com/fitandfuncoimbra"><img src="assets/images/sponsors/sponsor-fit-and-fun.png"
+            alt="Fit and Fun" /></a>
       </div>
-      <div class="sponsor-logo">
-        <a href="#"><img src="assets/images/sponsors/sponsor-mac.png" alt="MAC" /></a>
+      <div class="swiper-slide sponsor-logo">
+        <a href="https://maccoimbra.pt"><img src="assets/images/sponsors/sponsor-mac.png" alt="MAC" /></a>
       </div>
-      <div class="sponsor-logo">
-        <a href="#"><img src="assets/images/sponsors/sponsor-coimpack.png" alt="Coimpack" /></a>
+      <div class="swiper-slide sponsor-logo">
+        <a href="https://www.coimpack.pt"><img src="assets/images/sponsors/sponsor-coimpack.png" alt="Coimpack" /></a>
       </div>
-      <div class="sponsor-logo">
-        <a href="#"><img src="assets/images/sponsors/sponsor-plc.png" alt="PLC" /></a>
+      <div class="swiper-slide sponsor-logo">
+        <a href="https://plccorretores.pt"><img src="assets/images/sponsors/sponsor-plc.png" alt="PLC" /></a>
       </div>
+    </div>
     </div>
   </section>
 
@@ -383,7 +390,9 @@
       <span class="o-lbl">Organização</span>
       <div class="o-list">
         <div class="o-item">
-          <img src="assets/images/org-legua-dc.png" alt="Diário de Coimbra" />
+          <a href="https://www.diariocoimbra.pt/" target="_blank">
+            <img src="assets/images/org-legua-dc.png" alt="Diário de Coimbra" />
+          </a>
         </div>
         <div class="o-item">
           <img src="assets/images/org-cmc.png" alt="Câmara Municipal de Coimbra" />
@@ -466,6 +475,7 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 

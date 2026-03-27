@@ -409,18 +409,18 @@ a {
   width: 100%;
 }
 
-.sponsors-track {
-  display: flex;
-  gap: 60px;
-  width: max-content;
-  will-change: transform;
-  user-select: none;
-  -webkit-user-select: none;
-  cursor: grab;
+/* Swiper Carousel */
+.sponsors-carousel {
+  overflow: visible;
 }
 
-.sponsors-track.is-dragging {
-  cursor: grabbing;
+.sponsors-carousel .swiper-wrapper {
+  align-items: center;
+}
+
+.swiper-slide.sponsor-logo {
+  width: auto;
+  height: 60px;
 }
 
 .sponsor-logo {
