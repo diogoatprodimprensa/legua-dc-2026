@@ -48,10 +48,16 @@ const sponsorsSwiper = new Swiper('.sponsors-carousel', {
   loop: true,
   slidesPerView: 'auto',
   spaceBetween: 60,
-  speed: 2000,
+  speed: 4000,
   autoplay: {
-    delay: 2000,
-    disableOnInteraction: true,
+    delay: 0,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
+  freeMode: {
+    enabled: true,
+    momentum: false,
   },
   grabCursor: true,
+  allowTouchMove: true,
 });

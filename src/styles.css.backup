@@ -410,17 +410,9 @@ a {
 }
 
 /* Swiper Carousel */
-.sponsors-carousel {
-  overflow: visible;
-}
-
 .sponsors-carousel .swiper-wrapper {
   align-items: center;
-}
-
-.swiper-slide.sponsor-logo {
-  width: auto;
-  height: 60px;
+  transition-timing-function: linear;
 }
 
 .sponsor-logo {
@@ -429,7 +421,7 @@ a {
   align-items: center;
   justify-content: center;
   height: 60px;
-  width: 200px;
+  width: 200px !important;
 }
 
 .sponsor-logo a {
