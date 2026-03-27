@@ -651,7 +651,7 @@ a {
 
 /* ── MEDIA SECTION ── */
 .media-video {
-  padding: 72px 0;
+  padding: 72px 0 0 0;
 }
 
 .video-embed {
@@ -670,7 +670,7 @@ a {
 
 @media (max-width: 768px) {
   .media-video {
-    padding: 48px 0;
+    padding: 48px 0 0 0;
   }
 
   .video-embed {
