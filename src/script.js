@@ -18,12 +18,10 @@ function updateCountdown() {
   const days = Math.floor(diff / 864e5);
   const hours = Math.floor((diff % 864e5) / 36e5);
   const minutes = Math.floor((diff % 36e5) / 6e4);
-  const seconds = Math.floor((diff % 6e4) / 1e3);
 
   document.getElementById('cd-d').textContent = String(days).padStart(2, '0');
   document.getElementById('cd-h').textContent = String(hours).padStart(2, '0');
   document.getElementById('cd-m').textContent = String(minutes).padStart(2, '0');
-  document.getElementById('cd-s2').textContent = String(seconds).padStart(2, '0');
 }
 
 // Initialize countdown
@@ -46,64 +44,99 @@ const revealObserver = new IntersectionObserver(
 document.querySelectorAll('.sr').forEach((el) => revealObserver.observe(el));
 
 /* SPONSORS CAROUSEL DRAG */
-const sponsorsTrack = document.querySelector('.sponsors-track');
+const track = document.querySelector('.sponsors-track');
 
-if (sponsorsTrack) {
-  let isDown = false;
+if (track) {
+  // Clone logos for seamless loop
+  track.querySelectorAll('.sponsor-logo').forEach(logo => {
+    track.appendChild(logo.cloneNode(true));
+  });
+
+  const SPEED = 1;        // px per frame — adjust to taste
+  const FRICTION = 0.92;    // drag release deceleration (0–1, higher = more slide)
+  const GAP = 60;           // must match CSS gap in px
+
+  let position = 0;
+  let halfWidth = 0;        // width of one set of logos (reset loop point)
+  let rafId = null;
+
   let isDragging = false;
-  let startX = 0;
-  let currentTranslate = 0;
-  let prevTranslate = 0;
-  const DRAG_THRESHOLD = 5;
+  let dragStartX = 0;
+  let lastDragX = 0;
+  let velocity = 0;
+  let isUserInteracting = false;
 
-  function startDrag(x) {
-    isDown = true;
-    isDragging = false;
-    startX = x;
+  function calcHalfWidth() {
+    // Half the track = one full set of logos
+    halfWidth = track.scrollWidth / 2;
   }
 
-  function moveDrag(x) {
-    if (!isDown) return;
-    const distance = Math.abs(x - startX);
-
-    if (!isDragging && distance > DRAG_THRESHOLD) {
-      isDragging = true;
-      sponsorsTrack.style.cursor = 'grabbing';
-      sponsorsTrack.style.animation = 'none';
+  function tick() {
+    if (!isUserInteracting) {
+      // Auto-scroll
+      velocity = -SPEED;
+    } else if (!isDragging) {
+      // Released — apply friction until velocity dies
+      velocity *= FRICTION;
+      if (Math.abs(velocity) < 0.05) velocity = 0;
     }
 
-    if (isDragging) {
-      currentTranslate = prevTranslate + (x - startX);
-      sponsorsTrack.style.transform = `translateX(${currentTranslate}px)`;
+    position += velocity;
+
+    // Loop: when we've scrolled one full set, reset silently
+    if (position <= -halfWidth) {
+      position += halfWidth;
     }
+    if (position > 0) {
+      position -= halfWidth;
+    }
+
+    track.style.transform = `translateX(${position}px)`;
+    rafId = requestAnimationFrame(tick);
   }
 
-  function endDrag() {
-    if (!isDown) return;
-    isDown = false;
-    if (isDragging) {
-      isDragging = false;
-      prevTranslate = currentTranslate;
-      sponsorsTrack.style.cursor = 'grab';
-      sponsorsTrack.style.animation = 'scroll-sponsors 40s linear infinite';
-    }
-  }
-
-  sponsorsTrack.addEventListener('pointerdown', (e) => {
-    sponsorsTrack.setPointerCapture(e.pointerId);
-    startDrag(e.clientX);
-  });
-
-  sponsorsTrack.addEventListener('pointermove', (e) => {
-    moveDrag(e.clientX);
-  });
-
-  sponsorsTrack.addEventListener('pointerup', endDrag);
-  sponsorsTrack.addEventListener('pointercancel', endDrag);
-
-  sponsorsTrack.addEventListener('dragstart', (e) => {
+  // ── Drag handling ──
+  track.addEventListener('pointerdown', (e) => {
+    isDragging = true;
+    isUserInteracting = true;
+    dragStartX = e.clientX;
+    lastDragX = e.clientX;
+    velocity = 0;
+    track.classList.add('is-dragging');
+    track.setPointerCapture(e.pointerId);
     e.preventDefault();
   });
 
-  sponsorsTrack.style.cursor = 'grab';
+  track.addEventListener('pointermove', (e) => {
+    if (!isDragging) return;
+    const delta = e.clientX - lastDragX;
+    velocity = delta;           // velocity = pixels moved this frame
+    position += delta;
+    lastDragX = e.clientX;
+  });
+
+  function endDrag() {
+    if (!isDragging) return;
+    isDragging = false;
+    isUserInteracting = false;  // let friction take over, then auto-scroll resumes
+    track.classList.remove('is-dragging');
+  }
+
+  track.addEventListener('pointerup', endDrag);
+  track.addEventListener('pointercancel', endDrag);
+
+  // Prevent click firing on logos after drag
+  track.addEventListener('click', (e) => {
+    if (Math.abs(dragStartX - lastDragX) > 5) {
+      e.preventDefault();
+    }
+  });
+
+  // Prevent image drag
+  track.addEventListener('dragstart', (e) => e.preventDefault());
+
+  // Init
+  window.addEventListener('resize', calcHalfWidth);
+  calcHalfWidth();
+  rafId = requestAnimationFrame(tick);
 }
