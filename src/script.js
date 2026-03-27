@@ -50,29 +50,43 @@ const sponsorsTrack = document.querySelector('.sponsors-track');
 
 if (sponsorsTrack) {
   let isDown = false;
+  let isDragging = false;
   let startX = 0;
   let currentTranslate = 0;
   let prevTranslate = 0;
+  const DRAG_THRESHOLD = 5;
 
   function startDrag(x) {
     isDown = true;
+    isDragging = false;
     startX = x;
-    sponsorsTrack.style.cursor = 'grabbing';
-    sponsorsTrack.style.animation = 'none';
   }
 
   function moveDrag(x) {
     if (!isDown) return;
-    currentTranslate = prevTranslate + (x - startX);
-    sponsorsTrack.style.transform = `translateX(${currentTranslate}px)`;
+    const distance = Math.abs(x - startX);
+
+    if (!isDragging && distance > DRAG_THRESHOLD) {
+      isDragging = true;
+      sponsorsTrack.style.cursor = 'grabbing';
+      sponsorsTrack.style.animation = 'none';
+    }
+
+    if (isDragging) {
+      currentTranslate = prevTranslate + (x - startX);
+      sponsorsTrack.style.transform = `translateX(${currentTranslate}px)`;
+    }
   }
 
   function endDrag() {
     if (!isDown) return;
     isDown = false;
-    prevTranslate = currentTranslate;
-    sponsorsTrack.style.cursor = 'grab';
-    sponsorsTrack.style.animation = 'scroll-sponsors 40s linear infinite';
+    if (isDragging) {
+      isDragging = false;
+      prevTranslate = currentTranslate;
+      sponsorsTrack.style.cursor = 'grab';
+      sponsorsTrack.style.animation = 'scroll-sponsors 40s linear infinite';
+    }
   }
 
   sponsorsTrack.addEventListener('pointerdown', (e) => {
