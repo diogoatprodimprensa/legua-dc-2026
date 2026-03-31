@@ -22,46 +22,54 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 const revealObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach(
-            (entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('vis');
-                    revealObserver.unobserve(entry.target);
-                }
-            }
-        );
+    (entries, observer) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('vis');
+            observer.unobserve(entry.target);
+        });
     },
-    {
-        threshold: 0.08
-    }
+    { threshold: 0.08 }
 );
+
 document.querySelectorAll('.sr').forEach((el) => revealObserver.observe(el));
-const sponsorsSwiper = new Swiper('.sponsors-carousel', {
-    loop: true,
-    loopAdditionalSlides: 4,
-    slidesPerView: 'auto',
-    spaceBetween: 60,
-    speed: 5000,
 
-    autoplay: {
-        delay: 1,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-    },
+const sponsorsRoot = document.querySelector('.sponsors-carousel');
 
-    freeMode: {
-        enabled: true,
-        momentum: true,
-        momentumRatio: 0.25
-    },
+if (sponsorsRoot) {
+    const autoScroll = EmblaCarouselAutoScroll({
+        speed: 1.5,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+        stopOnFocusIn: true
+    });
 
-    grabCursor: true,
-    allowTouchMove: true,
+    const embla = EmblaCarousel(
+        sponsorsRoot,
+        {
+            loop: true,
+            dragFree: false,
+            align: 'start'
+        },
+        [autoScroll]
+    );
 
-    on: {
-        touchEnd(swiper) {
-            requestAnimationFrame(() => swiper.autoplay.start());
+    // 👇 visibility control
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    autoScroll.play();
+                } else {
+                    autoScroll.stop();
+                }
+            });
+        },
+        {
+            threshold: 0, // adjust when it should start
+            rootMargin: '200px 0px'
         }
-    }
-});
+    );
+
+    observer.observe(sponsorsRoot);
+}
